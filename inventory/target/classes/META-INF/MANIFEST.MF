@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Build-Jdk-Spec: 21
+Implementation-Title: inventory
+Implementation-Version: 0.0.1-SNAPSHOT
+Main-Class: com.demo.main.Main
+Created-By: Maven Integration for Eclipse
+
