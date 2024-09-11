@@ -37,15 +37,15 @@ class InventoryApplicationTests {
 	@Test
 	public void testUpdateProduct() {
 		Product updatedProduct = new Product();
-		updatedProduct.setProductName("Updated Laptop");
-		updatedProduct.setProductDescription("Updated Gaming Laptop");
-		updatedProduct.setProductType("electronic");
-		updatedProduct.setProductQuantity(10);
-		updatedProduct.setProductPrice(1500);
+		updatedProduct.setProductName("Dell");
+		updatedProduct.setProductDescription("Gaming");
+		updatedProduct.setProductType("Laptop");
+		updatedProduct.setProductQuantity(100);
+		updatedProduct.setProductPrice(45000);
 
 		Product result = productService.updateProduct(product.getProductID(), updatedProduct);
 
-		assertEquals("Updated Laptop", result.getProductName());
+		assertEquals("Dell", result.getProductName());
 		assertEquals(10, result.getProductQuantity());
 	}
 }
