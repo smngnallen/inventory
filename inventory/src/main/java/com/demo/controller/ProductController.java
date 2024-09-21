@@ -31,22 +31,22 @@ public class ProductController {
 		return productService.addProducts(products);
 	}
 
-	@GetMapping("/products")
+	@GetMapping("/get/products")
 	public List<Product> getAllProducts() {
 		return productService.getAllProducts();
 	}
 
-	@GetMapping("/{productID}")
+	@GetMapping("/get/{id}")
 	public Product getProductById(@PathVariable int productID) {
 		return productService.getProductById(productID);
 	}
 
-	@PutMapping("/{productID}")
+	@PutMapping("/update/{id}")
 	public Product updateProduct(@PathVariable int productID, @RequestBody Product productDetails) {
 		return productService.updateProduct(productID, productDetails);
 	}
 
-	@DeleteMapping("/{productID}")
+	@DeleteMapping("/delete/{id}")
 	public void deleteProduct(@PathVariable int productID) {
 		productService.deleteProduct(productID);
 	}

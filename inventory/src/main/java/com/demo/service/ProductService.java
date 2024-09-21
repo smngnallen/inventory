@@ -12,35 +12,35 @@ import com.demo.repository.ProductRepository;
 public class ProductService {
 
 	@Autowired
-	private ProductRepository productRepository;
+	private ProductRepository repo;
 
 	public Product addProduct(Product product) {
-		return productRepository.save(product);
+		return repo.save(product);
 	}
 
 	public List<Product> addProducts(List<Product> products) {
-		return productRepository.saveAll(products);
+		return repo.saveAll(products);
 	}
 
 	public List<Product> getAllProducts() {
-		return productRepository.findAll();
+		return repo.findAll();
 	}
 
 	public Product getProductById(int id) {
-		return productRepository.findById(id).orElse(null);
+		return repo.findById(id).orElse(null);
 	}
 
 	public void deleteProduct(int id) {
-		productRepository.deleteById(id);
+		repo.deleteById(id);
 	}
 
 	public Product updateProduct(int id, Product details) {
 		Product product = getProductById(id);
-		product.setProductName(details.getProductName());
-		product.setProductDescription(details.getProductDescription());
-		product.setProductType(details.getProductType());
-		product.setProductQuantity(details.getProductQuantity());
-		product.setProductPrice(details.getProductPrice());
-		return productRepository.save(product);
+		product.setName(details.getName());
+		product.setDesc(details.getDesc());
+		product.setType(details.getType());
+		product.setQuantity(details.getQuantity());
+		product.setPrice(details.getPrice());
+		return repo.save(product);
 	}
 }

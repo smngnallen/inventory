@@ -2,12 +2,10 @@ package com.demo.inventory;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -25,27 +23,62 @@ class InventoryApplicationTests {
 	@InjectMocks
 	private ProductService productService;
 
-	private Product product;
+	@Test
+	public void testAddProduct() {
+		Product product = new Product();
+		product.setId(101);
+		product.setName("Lenovo");
+		product.setDesc("Chromebook");
+		product.setType("Laptop");
+		product.setQuantity(50);
+		product.setPrice(39000);
+		productRepository.save(product);
 
-	@BeforeEach
-	public void setUp() {
-		MockitoAnnotations.openMocks(this);
-		product = new Product();
-		product = productService.getProductById(1);
+		Product result = productService.getProductById(101);
+
+		assertEquals("Lenovo", result.getName());
+		assertEquals(39000, result.getPrice());
+	}
+
+	@Test
+	public void testAddProducts() {
+		Product product = new Product();
+		product.setId(101);
+		product.setName("Lenovo");
+		product.setDesc("Chromebook");
+		product.setType("Laptop");
+		product.setQuantity(50);
+		product.setPrice(39000);
+		productRepository.save(product);
+
+		Product result = productService.getProductById(101);
+
+		assertEquals("Lenovo", result.getName());
+		assertEquals(39000, result.getPrice());
+	}
+
+	@Test
+	public void testDeleteProduct() {
+		productService.deleteProduct(101);
+		Product product = productService.getProductById(101);
+
+		assertEquals(product, null);
 	}
 
 	@Test
 	public void testUpdateProduct() {
+		Product product = new Product();
+		product = productService.getProductById(102);
 		Product updatedProduct = new Product();
-		updatedProduct.setProductName("Dell");
-		updatedProduct.setProductDescription("Gaming");
-		updatedProduct.setProductType("Laptop");
-		updatedProduct.setProductQuantity(100);
-		updatedProduct.setProductPrice(45000);
+		updatedProduct.setName("Dell");
+		updatedProduct.setDesc("Gaming");
+		updatedProduct.setType("Laptop");
+		updatedProduct.setQuantity(100);
+		updatedProduct.setPrice(45000);
 
 		Product result = productService.updateProduct(product.getProductID(), updatedProduct);
 
-		assertEquals("Dell", result.getProductName());
-		assertEquals(10, result.getProductQuantity());
+		assertEquals("Dell", result.getName());
+		assertEquals(10, result.getQuantity());
 	}
 }

@@ -13,69 +13,73 @@ public class Product {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "productID")
-	private int productID;
+	@Column(name = "id")
+	private int id;
 
-	@Column(name = "productName")
-	private String productName;
+	@Column(name = "name")
+	private String name;
 
-	@Column(name = "productDescription")
-	private String productDescription;
+	@Column(name = "desc")
+	private String desc;
 
-	@Column(name = "productType")
-	private String productType;
+	@Column(name = "quantity")
+	private int quantity;
 
-	@Column(name = "productQuantity")
-	private int productQuantity;
+	@Column(name = "type")
+	private String type;
 
-	@Column(name = "productPrice")
-	private double productPrice;
+	@Column(name = "price")
+	private double price;
 
 	public int getProductID() {
-		return productID;
+		return id;
 	}
 
-	public void setProductID(int productID) {
-		this.productID = productID;
+	public int getId() {
+		return id;
 	}
 
-	public String getProductName() {
-		return productName;
+	public void setId(int id) {
+		this.id = id;
 	}
 
-	public void setProductName(String productName) {
-		this.productName = productName;
+	public String getName() {
+		return name;
 	}
 
-	public String getProductDescription() {
-		return productDescription;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public void setProductDescription(String productDescription) {
-		this.productDescription = productDescription;
+	public String getDesc() {
+		return desc;
 	}
 
-	public String getProductType() {
-		return productType;
+	public void setDesc(String desc) {
+		this.desc = desc;
 	}
 
-	public void setProductType(String productType) {
-		this.productType = productType;
+	public int getQuantity() {
+		return quantity;
 	}
 
-	public int getProductQuantity() {
-		return productQuantity;
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
 
-	public void setProductQuantity(int productQuantity) {
-		this.productQuantity = productQuantity;
+	public String getType() {
+		return type;
 	}
 
-	public double getProductPrice() {
-		return productPrice;
+	public void setType(String type) {
+		this.type = type;
 	}
 
-	public void setProductPrice(double productPrice) {
-		this.productPrice = productPrice;
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
 	}
 }
